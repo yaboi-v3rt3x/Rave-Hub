@@ -6,6 +6,21 @@ local title = "Scriptware | " .. game:GetService("MarketplaceService"):GetProduc
 
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 
+local GameID = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+
+if GameID == 9359839118 then
+    local Window = OrionLib:MakeWindow({Name = title, SaveConfig = true, ConfigFolder = "Scriptware"})
+else
+    OrionLib:MakeNotification(
+    {
+        Name = "Scriptware | Error",
+        Content = "Different Game Detected"  .. game.Players.LocalPlayer.Name ..  ", please open Gas Station Simulator to use its UI!",
+        Image = "rbxassetid://7072980286",
+        Time = 4
+    }
+    )
+end
+
 OrionLib:MakeNotification(
     {
         Name = "Scriptware",
@@ -14,8 +29,6 @@ OrionLib:MakeNotification(
         Time = 4
     }
 )
-
-local Window = OrionLib:MakeWindow({Name = title, SaveConfig = true, ConfigFolder = "Scriptware"})
 
 local function cleanWindows()
     for _, v in next, game:GetService("Workspace").Windows:GetChildren() do
