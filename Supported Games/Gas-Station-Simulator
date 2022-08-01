@@ -9,23 +9,23 @@ local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shl
 local GameID = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
 
 if GameID == 9359839118 then
-OrionLib:MakeNotification(
-    {
-        Name = "Scriptware",
-        Content = "Welcome " .. game.Players.LocalPlayer.Name .. ", the UI is loading now!",
-        Image = "rbxassetid://7072718307",
-        Time = 4
-    }
+    OrionLib:MakeNotification(
+        {
+            Name = "Scriptware",
+            Content = "Welcome " .. game.Players.LocalPlayer.Name .. ", the UI is loading now!",
+            Image = "rbxassetid://7072718307",
+            Time = 4
+        }
     )
     local Window = OrionLib:MakeWindow({Name = title, SaveConfig = true, ConfigFolder = "Scriptware"})
 else
     OrionLib:MakeNotification(
-    {
-        Name = "Scriptware | Error",
-        Content = "Different Game Detected "  .. game.Players.LocalPlayer.Name ..  ", please open Gas Station Simulator to use its UI!",
-        Image = "rbxassetid://7072980286",
-        Time = 4
-    }
+        {
+            Name = "Scriptware | Error",
+            Content = "Different Game Detected "  .. game.Players.LocalPlayer.Name ..  ", please open Gas Station Simulator to use its UI!",
+            Image = "rbxassetid://7072980286",
+            Time = 4
+        }
     )
 end
 
