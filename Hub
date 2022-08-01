@@ -29,7 +29,7 @@ Tab:AddButton(
     {
         Name = "Gas Station Simulator",
         Callback = function()
-            loadstring(game:HttpGet(("https://raw.githubusercontent.com/UnNamedScripts/Scriptware/main/Supported%20Games/Gas%20Station%20Simulator.txt")))()
+            loadstring(game:HttpGet(("https://raw.githubusercontent.com/UnNamedScripts/Scriptware/main/Supported-Games/Gas-Station-Simulator")))()
         end
     }
 )
