@@ -1,10 +1,8 @@
-local function press(a)
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, tostring(a), false, game)
-end
-
 local title = "Scriptware | Hub"
 
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
+
+local GameID = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
 
 OrionLib:MakeNotification(
     {
@@ -20,31 +18,26 @@ local Window = OrionLib:MakeWindow({Name = title})
 local Tab =
     Window:MakeTab(
     {
-        Name = "About",
-        Icon = "rbxassetid://7072716017"
+        Name = "Games",
+        Icon = "rbxassetid://7072718266"
     }
 )
 
 Tab:AddButton(
     {
-        Name = "This is a test and hopefully it works! REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
-        end
-    }
-)
-
-local Tab2 =
-    Window:MakeTab(
-    {
-        Name = "Supported Games",
-        Icon = "rbxassetid://7072718266"
-    }
-)
-
-Tab2:AddButton(
-    {
         Name = "Gas Station Simulator",
         Callback = function()
-            loadstring(game:HttpGet(("https://raw.githubusercontent.com/UnNamedScripts/Scriptware/main/Supported-Games/Gas-Station-Simulator")))()
+            if GameID = 9359839118 then
+                loadstring(game:HttpGet(("https://raw.githubusercontent.com/UnNamedScripts/Scriptware/main/Supported-Games/Gas-Station-Simulator")))()
+            else
+                OrionLib:MakeNotification(
+                    {
+                        Name = "Scriptware | Error",
+                        Content = "Different game detected, please switch to Gas Station Simulator to use its UI",
+                        Image = "rbxassetid://7072980286",
+                        Time = 4
+                    }
+                )
         end
     }
 )
