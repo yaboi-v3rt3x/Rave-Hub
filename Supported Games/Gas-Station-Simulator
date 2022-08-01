@@ -22,7 +22,7 @@ else
     OrionLib:MakeNotification(
         {
             Name = "Scriptware | Error",
-            Content = "Different Game Detected "  .. game.Players.LocalPlayer.Name ..  ", please open Gas Station Simulator to use its UI!",
+            Content = "Different Game Detected, please open Gas Station Simulator to use its UI!",
             Image = "rbxassetid://7072980286",
             Time = 4
         }
