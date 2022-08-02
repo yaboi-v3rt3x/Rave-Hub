@@ -1,45 +1,62 @@
-local title = "Scriptware | Hub"
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Scriptware Hub", "Sentinel")
+local UIS = game:GetService("UserInputService")
+local Workspace = game:GetService("Workspace")
 
-local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
+-- Main
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main Information")
 
-local GameID = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+MainSection:NewToggle("Premium Mode", "Allows use of Premium-Only abilities", function(premiumtoggled)
+    if premiumtoggled then
+        print("Premium On")
+    else
+        print("Premium Off")
+    end
+end)
 
-OrionLib:MakeNotification(
-    {
-        Name = "Scriptware",
-        Content = "Welcome " .. game.Players.LocalPlayer.Name .. ", the Hub is loading now!",
-        Image = "rbxassetid://7072718307",
-        Time = 4
-    }
-)
+MainSection:NewLabel("Version: 1.0.0")
+MainSection:NewLabel("Game: " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "")
+MainSection:NewLabel("User: " .. game.Players.LocalPlayer.Name .. "")
 
-local Window = OrionLib:MakeWindow({Name = title})
+-- Universal Cheats
+local UniversalCheats = Window:NewTab("Universal Cheats")
+local UniversalCheatsSection = UniversalCheats:NewSection("Universal Cheat List")
 
-local Tab =
-    Window:MakeTab(
-    {
-        Name = "Games",
-        Icon = "rbxassetid://7072718266"
-    }
-)
+UniversalCheatsSection:NewToggle("Flight", "Allows you to fly around the game", function(flighttoggled)
+    if flighttoggled then
+        Flight.Value = 1
+    else
+        Flight.Value = 0
+    end
+end)
 
-Tab:AddButton(
-    {
-        Name = "Gas Station Simulator",
-        Callback = function()
-            if GameID = 9359839118 then
-                loadstring(game:HttpGet(("https://raw.githubusercontent.com/UnNamedScripts/Scriptware/main/Supported-Games/Gas-Station-Simulator")))()
-            else
-                OrionLib:MakeNotification(
-                    {
-                        Name = "Scriptware | Error",
-                        Content = "Different game detected, please switch to Gas Station Simulator to use its UI",
-                        Image = "rbxassetid://7072980286",
-                        Time = 4
-                    }
-                )
-        end
-    }
-)
+UniversalCheatsSection:NewToggle("Infinite Jump", "Allows you to jump infinitly, even in the air", function(infinitejumptoggled)
+    if infinitejumptoggled then
+        InfiniteJump.Value = 1
+    else
+        InfiniteJump.Value = 0
+    end
+end)
 
-OrionLib:Init()
+UniversalCheatsSection:NewToggle("God Mode", "Makes you invincible/unkillable", function(godmodetoggled)
+    if godmodetoggled then
+        GodMode.Value = 1
+    else
+        GodMode.Value = 0
+    end
+end)
+
+-- Supported Games
+local SupportedGames = Window:NewTab("Supported Games")
+local SupportedGamesSection = UniversalCheats:NewSection("Supported Games List")
+
+SupportedGamesSection:NewButton("Gas Station Simulator", "Opens UI for Gas Station Simulator", function()
+    print("Clicked")
+end)
+
+-- Values
+local Premium = Workspace.new("ObjectValue")
+local Flight = Workspace.new("ObjectValue")
+local InfiniteJump = Workspace.new("ObjectValue")
+local GodMode = Workspace.new("ObjectValue")
