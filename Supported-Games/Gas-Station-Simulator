@@ -2,20 +2,20 @@ local function press(a)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, tostring(a), false, game)
 end
 
-local title = "Scriptware | " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local title = "Rave Hub | " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 
 OrionLib:MakeNotification(
     {
-        Name = "Scriptware",
+        Name = "Rave Hub",
         Content = "Welcome " .. game.Players.LocalPlayer.Name .. ", the UI is loading now!",
         Image = "rbxassetid://7072718307",
         Time = 4
     }
 )
 
-local Window = OrionLib:MakeWindow({Name = title, SaveConfig = true, ConfigFolder = "Scriptware"})
+local Window = OrionLib:MakeWindow({Name = title, SaveConfig = true, ConfigFolder = "Rave Hub"})
 
 local function cleanWindows()
     for _, v in next, game:GetService("Workspace").Windows:GetChildren() do
@@ -180,7 +180,7 @@ Tab:AddButton(
         Callback = function()
         	OrionLib:MakeNotification(
                     {
-                        Name = "Scriptware | Error",
+                        Name = "Rave Hub | Error",
                         Content = "This function is currently unavalible!",
                         Image = "rbxassetid://7072980286",
                         Time = 4
@@ -417,7 +417,7 @@ Tab:AddButton(
             elseif not GC then
                 OrionLib:MakeNotification(
                     {
-                        Name = "Scriptware | Error",
+                        Name = "Rave Hub | Error",
                         Content = "Your executor does not support getconnections " .. game.Players.LocalPlayer.Name,
                         Image = "rbxassetid://7072980286",
                         Time = 4
