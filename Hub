@@ -1,3 +1,14 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Libary = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Rave Hub", ConfigFolder = "Rave Hub", SaveConfig = true, IntroEnabled = true, IntroIcon = <string>, Icon = <string>})
+local Hub = Libary:MakeWindow({Name = "Rave Hub", ConfigFolder = "Rave Hub", SaveConfig = true, IntroEnabled = true, IntroIcon = https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Logo.png, Icon = https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Text%20Logo.png})
+
+local MainTab = Hub:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+})
+
+local AboutSection = MainTab:AddSection({
+	Name = "About"
+})
+
+Libary:Init()
