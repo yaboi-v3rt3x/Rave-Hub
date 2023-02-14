@@ -1,5 +1,7 @@
 local Libary = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
+local Player = game:GetService("Players").LocalPlayer
+
 local Hub = Libary:MakeWindow({Name = "Rave Hub", ConfigFolder = "Rave Hub", SaveConfig = true, IntroEnabled = true, IntroIcon = "https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Logo.png", Icon = "https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Text%20Logo.png"})
 
 local HomeTab = Hub:MakeTab({
@@ -7,22 +9,49 @@ local HomeTab = Hub:MakeTab({
 	Icon = "rbxassetid://11347112419",
 })
 
-local WelcomeSection = HomeTab:AddSection({
-	Name = "Welcome"
+local UpdateSection = HomeTab:AddSection({
+	Name = "Update Log"
 })
 
-HomeTab:AddParagraph("","Welcome to Rave Hub {players.localplayer.name}! ")
-
-HomeTab:AddButton({
-	Name = "Emergancy Eject",
-	Callback = function()
-      		Libary:Destroy()
-  	end    
-})
+HomeTab:AddParagraph("","No Updates To Record At The Moment!")
 
 local UniversalTab = Hub:MakeTab({
 	Name = "Universal Cheats",
 	Icon = "rbxassetid://11887653913",
+})
+
+UniversalTab:AddSlider({
+	Name = "Player Speed",
+	Min = 0,
+	Max = 100,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "playerspeed",
+	Callback = function(Value)
+		Player.Character:FindFirstChild("Humanoid").WalkSpeed = Value
+	end    
+})
+
+UniversalTab:AddSlider({
+	Name = "Jump Power",
+	Min = 0,
+	Max = 100,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "playerjumppower",
+	Callback = function(Value)
+		Player.Character:FindFirstChild("Humanoid").JumpPower = Value
+	end    
+})
+
+UniversalTab:AddToggle({
+	Name = "God Mode",
+	Default = false,
+	Callback = function(Value)
+		Player.Character:FindFirstChild("Humanoid").Health = math.huge
+	end    
 })
 
 local SupportedTab = Hub:MakeTab({
@@ -30,9 +59,22 @@ local SupportedTab = Hub:MakeTab({
 	Icon = "rbxassetid://5107183937",
 })
 
+SupportedTab:AddButton({
+	Name = "Gas Station Simulator",
+	Callback = function()
+      		loadstring(game:HttpGet(('https://raw.githubusercontent.com/UnNamedScripts/Rave-Hub/main/Supported-Games/Gas-Station-Simulator')))()
+		Libary:Destroy()
+  	end    
+})
+
+local ProfileTab = Hub:MakeTab({
+	Name = "Profile",
+	Icon = "rbxassetid://11887653913",
+})
+
 Libary:MakeNotification({
 	Name = "Rave Hub",
-	Content = "Welcome {players.localplayer.name}!",
+	Content = "Welcome ".. game.Players.LocalPlayer.Name .."!",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
