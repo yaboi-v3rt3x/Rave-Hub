@@ -1,14 +1,40 @@
 local Libary = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Hub = Libary:MakeWindow({Name = "Rave Hub", ConfigFolder = "Rave Hub", SaveConfig = true, IntroEnabled = true, IntroIcon = https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Logo.png, Icon = https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Text%20Logo.png})
+local Hub = Libary:MakeWindow({Name = "Rave Hub", ConfigFolder = "Rave Hub", SaveConfig = true, IntroEnabled = true, IntroIcon = "https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Logo.png", Icon = "https://github.com/UnNamedScripts/Rave-Hub/blob/main/Assets/Text%20Logo.png"})
 
-local MainTab = Hub:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
+local HomeTab = Hub:MakeTab({
+	Name = "Home",
+	Icon = "rbxassetid://11347112419",
 })
 
-local AboutSection = MainTab:AddSection({
-	Name = "About"
+local WelcomeSection = HomeTab:AddSection({
+	Name = "Welcome"
+})
+
+HomeTab:AddParagraph("","Welcome to Rave Hub {players.localplayer.name}! ")
+
+HomeTab:AddButton({
+	Name = "Emergancy Eject",
+	Callback = function()
+      		Libary:Destroy()
+  	end    
+})
+
+local UniversalTab = Hub:MakeTab({
+	Name = "Universal Cheats",
+	Icon = "rbxassetid://11887653913",
+})
+
+local SupportedTab = Hub:MakeTab({
+	Name = "Supported Games",
+	Icon = "rbxassetid://5107183937",
+})
+
+Libary:MakeNotification({
+	Name = "Rave Hub",
+	Content = "Welcome {players.localplayer.name}!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
 })
 
 Libary:Init()
